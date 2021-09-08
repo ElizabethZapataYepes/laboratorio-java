@@ -24,11 +24,12 @@ public class Main {
                     System.out.println("Este ejercicio indica entre dos numeros, cual es el mayor o si son iguales");
                     System.out.print("¿Desea ejercutarlo? \nEscriba SI o NO: ");
                     opcion = leer.next().toUpperCase(Locale.ROOT);
+                    repetir = true;
                     if (opcion.equals("SI")) {
                         primerEjercicio();
                         repetir = true;
                     } else {
-                        System.out.println("FELIZ DÍA");
+                        System.out.println("Opción no válida");
                     }
                 } else if (opcionConvert == 2){
                     System.out.println("Este ejercicio es una variacion del primero. Debes ingresar los números");
@@ -171,16 +172,21 @@ public class Main {
                    } else {
                        System.out.println("FELIZ DÍA");
                    }
-                } else if ( opcionConvert == 16){
+                } else if (opcionConvert == 16){
                     main.Ejercicio16.Main main = new main.Ejercicio16.Main();
                     main.ejecutar();
-                }else if( opcionConvert == 17){
+                }else if(opcionConvert == 17){
                     main.Ejercicio17.Main main = new main.Ejercicio17.Main();
                     main.llenarLista();
                     main.precioFinal();
-                }else if (opcionConvert == 20) {
+                } else if(opcionConvert == 18){
+                    main.Ejercicio18.App main = new main.Ejercicio18.App();
+                    main.ejecutar();
+                } else if (opcionConvert == 19) {
                     System.out.println("Muchas gracias, que tenga un felíz día \nVuelve Pronto");
                     repetir = false;
+                } else {
+                    System.out.println("No existe ese Ejercicio");
                 }
             } else {
                 System.out.println("¿Usted es bruto? INGRESE UN NÚMERO");
@@ -197,7 +203,7 @@ public class Main {
         System.out.println("__________________________TALLER JAVA___________________________");
         System.out.println("Seleccione de menú que ejercicio desea ejecutar");
         System.out.println("[1],  [2],  [3],  [4],  [5],  [6], [7],  [8],  [9], " +
-                "\n[10], [11], [12], [13], [14], [15], [16], [17], [18] \n20- Para cerrar");
+                "\n[10], [11], [12], [13], [14], [15], [16], [17], [18] \n19- Para cerrar");
         System.out.print("¿Que ejercicio desea resolver?: ");
 
     }
