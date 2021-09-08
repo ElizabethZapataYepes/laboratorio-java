@@ -1,12 +1,14 @@
 package main;
 
 import javax.swing.plaf.synth.SynthOptionPaneUI;
+import java.io.IOException;
 import java.util.Locale;
 import java.util.Scanner;
 import java.lang.Math;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.lang.ProcessBuilder;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,8 +21,8 @@ public class Main {
             if (comprobarNumero(opcion)){
                 double opcionConvert = Double.valueOf(opcion);
                 if(opcionConvert == 1){
-                    System.out.println("Este ejercicio indica entre dos numeros, cual es el amyor o si son iguales");
-                    System.out.print("¿Desea ejercutarlo?: ");
+                    System.out.println("Este ejercicio indica entre dos numeros, cual es el mayor o si son iguales");
+                    System.out.print("¿Desea ejercutarlo? \nEscriba SI o NO: ");
                     opcion = leer.next().toUpperCase(Locale.ROOT);
                     if (opcion.equals("SI")) {
                         primerEjercicio();
@@ -30,7 +32,7 @@ public class Main {
                     }
                 } else if (opcionConvert == 2){
                     System.out.println("Este ejercicio es una variacion del primero. Debes ingresar los números");
-                    System.out.print("¿Desea ejercutarlo?: ");
+                    System.out.print("¿Desea ejercutarlo? \nEscriba SI o NO: ");
                     opcion = leer.next().toUpperCase(Locale.ROOT);
                     if (opcion.equals("SI")){
                         segundoEjercicio();
@@ -41,7 +43,7 @@ public class Main {
                 } else if (opcionConvert == 3){
                     System.out.println("Este ejercicio calcula el area de una circunferencia. Solo debes ingresar" +
                             "el radio de la circunferencia");
-                    System.out.print("¿Desea ejercutarlo?: ");
+                    System.out.print("¿Desea ejercutarlo? \nEscriba SI o NO: ");
                     opcion = leer.next().toUpperCase(Locale.ROOT);
                     if (opcion.equals("SI")) {
                         tercerEjercicio();
@@ -51,7 +53,7 @@ public class Main {
                     }
                 } else if (opcionConvert == 4) {
                     System.out.println("Este ejercicio calcula el valor del producto, con IVA incluido.");
-                    System.out.print("¿Desea ejercutarlo?: ");
+                    System.out.print("¿Desea ejercutarlo? \nEscriba SI o NO: ");
                     opcion = leer.next().toUpperCase(Locale.ROOT);
                     if (opcion.equals("SI")){
                         cuartoEjercicio();
@@ -61,7 +63,7 @@ public class Main {
                     }
                 } else if (opcionConvert == 5) {
                     System.out.println("Este ejercicio muestra los numeros pares e impares del 1 al 100.");
-                    System.out.print("¿Desea ejercutarlo?: ");
+                    System.out.print("¿Desea ejercutarlo? \nEscriba SI o NO: ");
                     opcion = leer.next().toUpperCase(Locale.ROOT);
                     if (opcion.equals("SI")){
                         quintoEjercicio();
@@ -71,7 +73,7 @@ public class Main {
                     }
                 } else if (opcionConvert == 6) {
                     System.out.println("Este ejercicio muestra los numeros pares e impares del 1 al 100.");
-                    System.out.print("¿Desea ejercutarlo?: ");
+                    System.out.print("¿Desea ejercutarlo? \nEscriba SI o NO: ");
                     opcion = leer.next().toUpperCase(Locale.ROOT);
                     if(opcion.equals("SI")){
                         sextoEjercicio();
@@ -81,7 +83,7 @@ public class Main {
                     }
                 } else if (opcionConvert == 7) {
                     System.out.println("Este ejercicio muestra si un numero es mayor o igual que cero.");
-                    System.out.print("¿Desea ejercutarlo?: ");
+                    System.out.print("¿Desea ejercutarlo? \nEscriba SI o NO: ");
                     opcion = leer.next().toUpperCase(Locale.ROOT);
                     if (opcion.equals("SI")){
                         septimoEjercicio();
@@ -91,7 +93,7 @@ public class Main {
                     }
                 } else if (opcionConvert == 8) {
                     System.out.println("Este ejercicio indica si un día es laboral o festivo.");
-                    System.out.print("¿Desea ejercutarlo?: ");
+                    System.out.print("¿Desea ejercutarlo? \nEscriba SI o NO: ");
                     opcion = leer.next().toUpperCase(Locale.ROOT);
                     if (opcion.equals("SI")){
                         octavoEjercicio();
@@ -101,7 +103,7 @@ public class Main {
                     }
                 } else if (opcionConvert == 9) {
                     System.out.println("Este ejercicio cmabia las letras 'a' por las 'e'.");
-                    System.out.print("¿Desea ejercutarlo?: ");
+                    System.out.print("¿Desea ejercutarlo? \nEscriba SI o NO: ");
                     opcion = leer.next().toUpperCase(Locale.ROOT);
                     if(opcion.equals("SI")){
                         novenoEjercicio();
@@ -111,7 +113,7 @@ public class Main {
                     }
                 } else if (opcionConvert == 10) {
                     System.out.println("Este ejercicio elimina los espacios de una frase");
-                    System.out.print("¿Desea ejercutarlo?: ");
+                    System.out.print("¿Desea ejercutarlo? \nEscriba SI o NO: ");
                     opcion = leer.next().toUpperCase(Locale.ROOT);
                     if (opcion.equals("SI")){
                         decimoEjercicio();
@@ -121,7 +123,7 @@ public class Main {
                     }
                 } else if (opcionConvert == 11) {
                     System.out.println("Este ejercicio muestra cuantas letras y vocales tiene una frase");
-                    System.out.print("¿Desea ejercutarlo?: ");
+                    System.out.print("¿Desea ejercutarlo? \nEscriba SI o NO: ");
                     opcion = leer.next().toUpperCase(Locale.ROOT);
                     if(opcion.equals("SI")){
                         decimoPrimerEjercicio();
@@ -131,7 +133,7 @@ public class Main {
                     }
                 } else if (opcionConvert == 12) {
                     System.out.println("Este ejercicio muestra si dos frases son iguales");
-                    System.out.print("¿Desea ejercutarlo?: ");
+                    System.out.print("¿Desea ejercutarlo? \nEscriba SI o NO: ");
                     opcion = leer.next().toUpperCase(Locale.ROOT);
                     if (opcion.equals("SI")){
                         decimoSegundoEjercicio();
@@ -141,7 +143,7 @@ public class Main {
                     }
                 } else if (opcionConvert == 13) {
                     System.out.println("Este ejercicio muestra la hora en formato (AAAA/MM/DD) (HH:MM:SS)");
-                    System.out.print("¿Desea ejercutarlo?: ");
+                    System.out.print("¿Desea ejercutarlo? \nEscriba SI o NO: ");
                     opcion = leer.next().toUpperCase(Locale.ROOT);
                     if (opcion.equals("SI")){
                         decimoTercerEjercicio();
@@ -151,7 +153,7 @@ public class Main {
                     repetir = true;
                 } else if (opcionConvert == 14) {
                     System.out.println("Este ejercicio muestra los desde N numero hasta 1000, mostrando de 2 en 2");
-                    System.out.print("¿Desea ejercutarlo?: ");
+                    System.out.print("¿Desea ejercutarlo? \nEscriba SI o NO: ");
                     opcion = leer.next().toUpperCase(Locale.ROOT);
                     if (opcion.equals("SI")){
                         decimoCuartoEjercicio();
@@ -161,7 +163,7 @@ public class Main {
                     }
                 } else if (opcionConvert == 15) {
                     System.out.println("Este ejercicio muestra un menu");
-                    System.out.print("¿Desea ejercutarlo?: ");
+                    System.out.print("¿Desea ejercutarlo? \nEscriba SI o NO: ");
                     opcion = leer.next().toUpperCase(Locale.ROOT);
                    if(opcion.equals("SI")){
                        quinceavoEjercicio();
@@ -169,7 +171,14 @@ public class Main {
                    } else {
                        System.out.println("FELIZ DÍA");
                    }
-                } else {
+                } else if ( opcionConvert == 16){
+                    main.Ejercicio16.Main main = new main.Ejercicio16.Main();
+                    main.ejecutar();
+                }else if( opcionConvert == 17){
+                    main.Ejercicio17.Main main = new main.Ejercicio17.Main();
+                    main.llenarLista();
+                    main.precioFinal();
+                }else if (opcionConvert == 20) {
                     System.out.println("Muchas gracias, que tenga un felíz día \nVuelve Pronto");
                     repetir = false;
                 }
@@ -187,8 +196,14 @@ public class Main {
     private static void menu() {
         System.out.println("__________________________TALLER JAVA___________________________");
         System.out.println("Seleccione de menú que ejercicio desea ejecutar");
-        System.out.println("1,  2,  3,  4,  5,  6 \n7,  8,  9,  10, 11, 12\n13, 14, 15, 16, 17, 18 \nPara cerrar presione '0");
+        System.out.println("[1],  [2],  [3],  [4],  [5],  [6], [7],  [8],  [9], " +
+                "\n[10], [11], [12], [13], [14], [15], [16], [17], [18] \n20- Para cerrar");
         System.out.print("¿Que ejercicio desea resolver?: ");
+
+    }
+
+    public static void clearConsole() throws IOException, InterruptedException {
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
     }
 
 
